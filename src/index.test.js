@@ -14,6 +14,53 @@ describe('multiply', () => {
       expect(multiply('11', '85')).to.be.equal('935');
     });
   });
+  describe('float number multiplications', () => {
+    it('should return -11x85="-935"', () => {
+      expect(multiply('-11', '85')).to.be.equal('-935');
+    });
+    it('should return 32.12x0.5="16.06"', () => {
+      expect(multiply('32.12', '0.5')).to.be.equal('16.06');
+    });
+    it('should return 32.12x0.="0"', () => {
+      expect(multiply('32.12', '0.')).to.be.equal('0');
+    });
+    it('should return 3212x0.="0"', () => {
+      expect(multiply('3212', '0.')).to.be.equal('0');
+    });
+    it('should return 3212x0.="3212"', () => {
+      expect(multiply('3212', '1.')).to.be.equal('3212');
+    });
+    it('should return 32.12x0.500="16.06"', () => {
+      expect(multiply('32.12', '0.500')).to.be.equal('16.06');
+    });
+    it('should return -0.00x0.0000="0"', () => {
+      expect(multiply('-0.00', '0.0000')).to.be.equal('0');
+    });
+    it('should return -0.01x-0.0000="0"', () => {
+      expect(multiply('-0.01', '0.0000')).to.be.equal('0');
+    });
+    it('should return 2.01x-3.0000="6.03"', () => {
+      expect(multiply('2.01', '3.0000')).to.be.equal('6.03');
+    });
+    it('should return 2x-3.000001="-6.000002"', () => {
+      expect(multiply('2', '-3.000001')).to.be.equal('-6.000002');
+    });
+    it('should return -5.0908x-123.1="626.67748"', () => {
+      expect(multiply('-5.0908', '-123.1')).to.be.equal('626.67748');
+    });
+    it('should return 00.0908x0.01="626.67748"', () => {
+      expect(multiply('00.0908', '0.01')).to.be.equal('0.000908');
+    });
+    it('should return 56.65x200="11330"', () => {
+      expect(multiply('56.65', '200')).to.be.equal('11330');
+    });
+    it('should return 56.65x100="5665"', () => {
+      expect(multiply('56.65', '100')).to.be.equal('5665');
+    });
+    it('should return 56.65x100.1="5670.665"', () => {
+      expect(multiply('56.65', '100.1')).to.be.equal('5670.665');
+    });
+  });
   describe('Some corner case', () => {
     it('should return 2x0="0"', () => {
       expect(multiply('2', '0')).to.be.equal('0');
